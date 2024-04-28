@@ -53,7 +53,7 @@ function App() {
 
   async function fetchData() {
     try {
-      const response = await fetch('http://localhost:3001/t/getData',
+      const response = await fetch(`${process.env.REACT_APP_DOMAIN}/t/getData`,
         {
           method: "GET",
           headers: {
@@ -70,7 +70,7 @@ function App() {
 
   async function updateData(topicData, topicPosition, rowId) {
     try {
-      await fetch('http://localhost:3001/t/updateData', {
+      await fetch(`${process.env.REACT_APP_DOMAIN}/t/updateData`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -91,7 +91,7 @@ function App() {
 
   async function resetData(cb) {
     try {
-      await fetch('http://localhost:3001/t/resetData', {
+      await fetch(`${process.env.REACT_APP_DOMAIN}/t/resetData`, {
         method: "DELETE",
         headers: {
           "authToken": localStorage.getItem("authToken")
@@ -106,7 +106,7 @@ function App() {
 
   async function exportData(cb) {
     try {
-      const response = await fetch('http://localhost:3001/t/exportData', {
+      const response = await fetch(`${process.env.REACT_APP_DOMAIN}/t/exportData`, {
         method: "POST",
         headers: {
           "authToken": localStorage.getItem("authToken")
@@ -127,7 +127,7 @@ function App() {
 
   async function importData(data, callback) {
     try {
-      const res = await fetch('http://localhost:3001/t/importData', {
+      const res = await fetch(`${process.env.REACT_APP_DOMAIN}/t/importData`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
